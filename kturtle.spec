@@ -5,18 +5,18 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kturtle
-Version  : 18.08.0
-Release  : 2
-URL      : https://download.kde.org/stable/applications/18.08.0/src/kturtle-18.08.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.08.0/src/kturtle-18.08.0.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.08.0/src/kturtle-18.08.0.tar.xz.sig
+Version  : 18.12.2
+Release  : 3
+URL      : https://download.kde.org/stable/applications/18.12.2/src/kturtle-18.12.2.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.2/src/kturtle-18.12.2.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.2/src/kturtle-18.12.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
-Requires: kturtle-bin
-Requires: kturtle-data
-Requires: kturtle-license
-Requires: kturtle-locales
+Requires: kturtle-bin = %{version}-%{release}
+Requires: kturtle-data = %{version}-%{release}
+Requires: kturtle-license = %{version}-%{release}
+Requires: kturtle-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 
@@ -31,8 +31,8 @@ the Questions section below.
 %package bin
 Summary: bin components for the kturtle package.
 Group: Binaries
-Requires: kturtle-data
-Requires: kturtle-license
+Requires: kturtle-data = %{version}-%{release}
+Requires: kturtle-license = %{version}-%{release}
 
 %description bin
 bin components for the kturtle package.
@@ -71,26 +71,26 @@ locales components for the kturtle package.
 
 
 %prep
-%setup -q -n kturtle-18.08.0
+%setup -q -n kturtle-18.12.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535433076
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1549876386
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535433076
+export SOURCE_DATE_EPOCH=1549876386
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/kturtle
-cp COPYING %{buildroot}/usr/share/doc/kturtle/COPYING
-cp COPYING.DOC %{buildroot}/usr/share/doc/kturtle/COPYING.DOC
+mkdir -p %{buildroot}/usr/share/package-licenses/kturtle
+cp COPYING %{buildroot}/usr/share/package-licenses/kturtle/COPYING
+cp COPYING.DOC %{buildroot}/usr/share/package-licenses/kturtle/COPYING.DOC
 pushd clr-build
 %make_install
 popd
@@ -116,7 +116,6 @@ popd
 /usr/share/katepart/syntax/logohighlightstyle.nb.xml
 /usr/share/katepart/syntax/logohighlightstyle.nds.xml
 /usr/share/katepart/syntax/logohighlightstyle.nl.xml
-/usr/share/katepart/syntax/logohighlightstyle.ru.xml
 /usr/share/kturtle/data/logokeywords.en_GB.xml
 /usr/share/kturtle/data/logokeywords.nb.xml
 /usr/share/kturtle/data/logokeywords.nl.xml
@@ -171,8 +170,6 @@ popd
 /usr/share/doc/HTML/ca/kturtle/glossary.docbook
 /usr/share/doc/HTML/ca/kturtle/index.cache.bz2
 /usr/share/doc/HTML/ca/kturtle/index.docbook
-/usr/share/doc/HTML/ca/kturtle/mainwindow.png
-/usr/share/doc/HTML/ca/kturtle/mainwindow_flower_nrs.png
 /usr/share/doc/HTML/ca/kturtle/programming-reference.docbook
 /usr/share/doc/HTML/ca/kturtle/translator-guide.docbook
 /usr/share/doc/HTML/ca/kturtle/using-kturtle.docbook
@@ -284,9 +281,9 @@ popd
 /usr/share/doc/HTML/uk/kturtle/using-kturtle.docbook
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/kturtle/COPYING
-/usr/share/doc/kturtle/COPYING.DOC
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/kturtle/COPYING
+/usr/share/package-licenses/kturtle/COPYING.DOC
 
 %files locales -f kturtle.lang
 %defattr(-,root,root,-)
