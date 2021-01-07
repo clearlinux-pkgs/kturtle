@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kturtle
-Version  : 20.12.0
-Release  : 26
-URL      : https://download.kde.org/stable/release-service/20.12.0/src/kturtle-20.12.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.12.0/src/kturtle-20.12.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.12.0/src/kturtle-20.12.0.tar.xz.sig
+Version  : 20.12.1
+Release  : 27
+URL      : https://download.kde.org/stable/release-service/20.12.1/src/kturtle-20.12.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.12.1/src/kturtle-20.12.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.12.1/src/kturtle-20.12.1.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -68,15 +68,15 @@ locales components for the kturtle package.
 
 
 %prep
-%setup -q -n kturtle-20.12.0
-cd %{_builddir}/kturtle-20.12.0
+%setup -q -n kturtle-20.12.1
+cd %{_builddir}/kturtle-20.12.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1607725578
+export SOURCE_DATE_EPOCH=1610036487
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -92,12 +92,12 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1607725578
+export SOURCE_DATE_EPOCH=1610036487
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kturtle
-cp %{_builddir}/kturtle-20.12.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/kturtle/1bd373e4851a93027ba70064bd7dbdc6827147e1
-cp %{_builddir}/kturtle-20.12.0/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kturtle/2a638514c87c4923c0570c55822620fad56f2a33
-cp %{_builddir}/kturtle-20.12.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kturtle/e712eadfab0d2357c0f50f599ef35ee0d87534cb
+cp %{_builddir}/kturtle-20.12.1/COPYING.DOC %{buildroot}/usr/share/package-licenses/kturtle/1bd373e4851a93027ba70064bd7dbdc6827147e1
+cp %{_builddir}/kturtle-20.12.1/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kturtle/2a638514c87c4923c0570c55822620fad56f2a33
+cp %{_builddir}/kturtle-20.12.1/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kturtle/e712eadfab0d2357c0f50f599ef35ee0d87534cb
 pushd clr-build
 %make_install
 popd
