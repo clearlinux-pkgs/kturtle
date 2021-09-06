@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kturtle
-Version  : 21.04.2
-Release  : 30
-URL      : https://download.kde.org/stable/release-service/21.04.2/src/kturtle-21.04.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.04.2/src/kturtle-21.04.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.04.2/src/kturtle-21.04.2.tar.xz.sig
+Version  : 21.08.1
+Release  : 31
+URL      : https://download.kde.org/stable/release-service/21.08.1/src/kturtle-21.08.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/21.08.1/src/kturtle-21.08.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/21.08.1/src/kturtle-21.08.1.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -68,36 +68,36 @@ locales components for the kturtle package.
 
 
 %prep
-%setup -q -n kturtle-21.04.2
-cd %{_builddir}/kturtle-21.04.2
+%setup -q -n kturtle-21.08.1
+cd %{_builddir}/kturtle-21.08.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1623402669
+export SOURCE_DATE_EPOCH=1630957461
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1623402669
+export SOURCE_DATE_EPOCH=1630957461
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kturtle
-cp %{_builddir}/kturtle-21.04.2/COPYING.DOC %{buildroot}/usr/share/package-licenses/kturtle/1bd373e4851a93027ba70064bd7dbdc6827147e1
-cp %{_builddir}/kturtle-21.04.2/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kturtle/2a638514c87c4923c0570c55822620fad56f2a33
-cp %{_builddir}/kturtle-21.04.2/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kturtle/e712eadfab0d2357c0f50f599ef35ee0d87534cb
+cp %{_builddir}/kturtle-21.08.1/COPYING.DOC %{buildroot}/usr/share/package-licenses/kturtle/1bd373e4851a93027ba70064bd7dbdc6827147e1
+cp %{_builddir}/kturtle-21.08.1/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kturtle/2a638514c87c4923c0570c55822620fad56f2a33
+cp %{_builddir}/kturtle-21.08.1/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kturtle/e712eadfab0d2357c0f50f599ef35ee0d87534cb
 pushd clr-build
 %make_install
 popd
@@ -276,6 +276,15 @@ popd
 /usr/share/doc/HTML/ru/kturtle/programming-reference.docbook
 /usr/share/doc/HTML/ru/kturtle/translator-guide.docbook
 /usr/share/doc/HTML/ru/kturtle/using-kturtle.docbook
+/usr/share/doc/HTML/sq/kturtle/getting-started.docbook
+/usr/share/doc/HTML/sq/kturtle/glossary.docbook
+/usr/share/doc/HTML/sq/kturtle/index.cache.bz2
+/usr/share/doc/HTML/sq/kturtle/index.docbook
+/usr/share/doc/HTML/sq/kturtle/mainwindow.png
+/usr/share/doc/HTML/sq/kturtle/mainwindow_flower_nrs.png
+/usr/share/doc/HTML/sq/kturtle/programming-reference.docbook
+/usr/share/doc/HTML/sq/kturtle/translator-guide.docbook
+/usr/share/doc/HTML/sq/kturtle/using-kturtle.docbook
 /usr/share/doc/HTML/sv/kturtle/getting-started.docbook
 /usr/share/doc/HTML/sv/kturtle/glossary.docbook
 /usr/share/doc/HTML/sv/kturtle/index.cache.bz2
